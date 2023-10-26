@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Instagram Registration</title>
+    <link rel="stylesheet" href="/static/stylesheet.css" />
+  </head>
+
+  <body>
+    <div class="right">
+      <div class="first">
+        <img src="/static/images/logo_insta.png" height="70px" />
+        <form action="registration" method="post">
+          {% csrf_token %}
+          <input
+            class="input_box"
+            type="email"
+            placeholder="Enter email address"
+            name="email"
+            id="email"
+          />
+          <input
+            class="input_box"
+            type="name"
+            placeholder="Enter Full Name"
+            name="fullname"
+            id="fullname"
+          />
+          <input
+            class="input_box"
+            type="name"
+            placeholder="User Name"
+            name="username"
+            id="username"
+          />
+          <input
+            class="input_box"
+            type="password"
+            placeholder="Password"
+            id="pass"
+            name="pass"
+          />
+          <button class="btnlogin" type="submit">Sign Up</button>
+        </form>
+        <div class="orfirst">
+          <div class="hrline">
+            <hr />
+          </div>
+
+          <div class="ortext">OR</div>
+          <div class="hrline">
+            <hr />
+          </div>
+        </div>
+        <div class="facebook">
+          <img src="/static/images/facebook.png" alt="facebook" width="15px" />
+          <p>Log in with facebook</p>
+        </div>
+        <div class="forgot">
+          <p>Forgotton your password?</p>
+        </div>
+      </div>
+      <div class="second">
+        <div class="notaccount">
+          <p>Dont have an account ? <b>Sign Up</b></p>
+        </div>
+      </div>
+      <div class="third">
+        <div>
+          <p>Get the app</p>
+        </div>
+        <div class="appstore">
+          <a href="https://apps.apple.com/app/instagram/id389801252?vt=lo">
+            <img class="store" src="/static/images/apple.png" alt="" />
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3D480A7CF4-4482-4FC5-8D7A-F0850DF91626%26utm_campaign%3DloginPage%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge"
+          >
+            <img class="store" src="/static/images/google.png" alt="" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
