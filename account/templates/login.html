@@ -16,8 +16,10 @@
       <div class="right">
         <div class="first">
           <img src="/static/images/logo_insta.png" height="70px" />
+
           <form action="login" method="post">
-            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}" />
+            {% csrf_token %} next is {{ next }}
             <input
               class="input_box"
               type="name"

@@ -15,6 +15,9 @@ class Post(models.Model):
     msg = models.TextField()
     media = models.ImageField(upload_to="media")
 
+    def __str__(self) -> str:
+        return self.title
+
 class Like(models.Model):
     postId = models.ForeignKey(Post, on_delete=models.CASCADE)
     like_by = models.ForeignKey(User, on_delete=models.CASCADE)

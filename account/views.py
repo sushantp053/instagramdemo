@@ -1,30 +1,48 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth import  authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from post.models import *
 
 from django.contrib import messages
 
 # Create your views here.
 def login1(request):
+    if (request.user != None):
+        return redirect("/home")
     if (request.method == "POST"):
         email = request.POST["email"]
         password = request.POST["pass"]
+        
+        next = request.POST["next"]
+
         user = authenticate(username=email, password=password)
 
         if(user != None):
             login(request, user)
-            return render(request, "home.html")
+
+            if(next != "" and next != None):
+                return redirect(next)
+            
+            return redirect("/home")
         else:
+
+            print("user login not successfull")
             messages.error(request, "User credintials are wrong.")
-            return render(request, "login.html")
+            if(next != ""):
+                fs = "hello {1}"
+                return redirect(f"login?next={next}")
+            else :
+                return render(request, "login.html")
 
     return render(request, "login.html")
 
 @login_required
 def home(requst):
 
-    return render(requst, "home.html")
+    allPost = Post.objects.all()
+
+    return render(requst, "home.html", context={"allpost": allPost})
 
 def register(request):
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  </head>
+
+  <body>
+    {{ allpost }} {% for post in allpost %}
+    <div class="post">
+      <p>
+        {{ post.postBy }}</p>
+        <img src="media/{{ post.media }}" height="100px" width="100px" />
+        <i class="ri-admin-line"></i>
+
+        <i class="ri-heart-line"></i>
+        <i class="ri-heart-fill"></i>
+        <h3> {{post}} </h3>
+        <h4> {{post.msg}} </h4>
+      </p>
+    </div>
+
+    {% endfor %}
+  </body>
+</html>
