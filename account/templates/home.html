@@ -1,27 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Instagram</title>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-  </head>
 
-  <body>
-    {{ allpost }} {% for post in allpost %}
-    <div class="post">
-      <p>
-        {{ post.postBy }}</p>
-        <img src="media/{{ post.media }}" height="100px" width="100px" />
-        <i class="ri-admin-line"></i>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/home.css">
+</head>
 
-        <i class="ri-heart-line"></i>
-        <i class="ri-heart-fill"></i>
-        <h3> {{post}} </h3>
-        <h4> {{post.msg}} </h4>
-      </p>
+<body>
+  {{ allpost }}
+  <nav class="navbar">
+    <div class="nav-wrapper">
+      <img src="/static/images/logo.png" class="brand-img" alt="">
+      <input type="text" class="search-box" placeholder="search">
+      <div class="nav-items">
+        <img src="/static/images/download.png" class="icon" alt="">
+
+        <img src="/static/images/add download (1).png" class="icon" alt="">
+        <img src="/static/images/explore-icon.png" class="icon" alt="">
+        <img src="/static/images/like.png" class="icon" alt="">
+        <img src="/static/images/msg images.png" class="icon" alt="">
+        <div class="/static/images/icon user-profile"></div>
+      </div>
     </div>
+  </nav>
+  <section class="main">
+    <div class="wrapper">
+      <div class="left-col">
+        <div class="status-wrapper">
+          <div class="status-card">
+            <div class="profile-pic"><img src="/static/images/cover 1.png.jpeg" alt=""></div>
+            <p class="username">Your story</p>
+          </div>
+          <div class="status-card">
+            <div class="profile-pic"><img src="/static/images/cover 2.png.jpeg" alt=""></div>
+            <p class="username">vidya_1998</p>
+          </div>
+          <div class="status-card">
+            <div class="profile-pic"><img src="/static/images/cover 3.png.jpeg" alt=""></div>
+            <p class="username">Shiv_Kate</p>
+          </div>
 
-    {% endfor %}
-  </body>
+          <div class="status-card">
+            <div class="profile-pic"><img src="/static/images/cover 4.png.jpeg" alt=""></div>
+            <p class="username">Mayu_1999</p>
+          </div>
+          <div class="status-card">
+            <div class="profile-pic"><img src="/static/images/cover 5.png.jpeg" alt=""></div>
+            <p class="username">Gayatri_Salunkhe</p>
+          </div>
+          <div class="status-card">
+            <div class="profile-pic"><img src="/static/images/cover 6.png.jpg" alt=""></div>
+            <p class="username">Pavan_kate</p>
+          </div>
+
+        </div>
+        <div class="allpost">
+
+          {% for p in allpost %}
+          <div class="post">
+            <div class="info">
+              <div class="user">
+                <div class="profile-pic"><img src="/static/images/cover 2.png.jpeg" alt=""></div>
+                <p class="username">{{ p.postBy}}</p>
+              </div>
+              <img src="/static/images/option.png" class="options" alt="">
+            </div>
+            <img src="media/{{ p.media }}" class="post-image" alt="">
+            <div class="post-content">
+              <div class="reaction-wrapper">
+                <img id="{{p.uid}}" src="/static/images/like.png" onclick="likePost('{{p.uid}}')" class="icon" alt="">
+                <img src="/static/images/comment.png" class="icon" alt="">
+                <img src="/static/images/send.png" class="icon" alt="">
+                <img src="/static/images/save.png" class="save icon" alt="">
+              </div>
+              <p class="likes">1,012 likes</p>
+              <p class="description"><span>username </span> Lorem ipsum dolor sit amet consectetur,
+                adipisicing elit. Pariatur tenetur veritatis placeat, molestiae impedit aut
+                provident eum quo natus molestias?</p>
+              <p class="post-time">2 minutes ago</p>
+            </div>
+            <div class="comment-wrapper">
+              <img src="img/smile.PNG" class="icon" alt="">
+              <input type="text" class="comment-box" placeholder="Add a comment">
+              <button class="comment-btn">post</button>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="right-col">
+        <div class="profile-card">
+          <div class="profile-pic">
+            <img src="/static/images/cover 1.png.jpeg" alt="">
+          </div>
+          <div>
+            <p class="username">varsha_1999</p>
+            <p class="sub-text">varsha_kate</p>
+          </div>
+          <button class="action-btn">switch</button>
+        </div>
+        <p class="suggestion-text">Suggestions for you</p>
+        <div class="profile-card">
+          <div class="profile-pic">
+            <img src="/static/images/komal.jpg" alt="">
+          </div>
+          <div>
+            <p class="username">komal.kale</p>
+            <p class="sub-text">followed bu user</p>
+          </div>
+          <button class="action-btn">follow</button>
+        </div>
+        <div class="profile-card">
+          <div class="profile-pic">
+            <img src="/static/images/shraddha.jpg" alt="">
+          </div>
+          <div>
+            <p class="username">patilshraddha</p>
+            <p class="sub-text">followed bu user</p>
+          </div>
+          <button class="action-btn">follow</button>
+        </div>
+        <div class="profile-card">
+          <div class="profile-pic">
+            <img src="/static/images/pranit.jpg" alt="">
+          </div>
+          <div>
+            <p class="username">_praneet_06</p>
+            <p class="sub-text">followed bu user</p>
+          </div>
+          <button class="action-btn">follow</button>
+        </div>
+        <div class="profile-card">
+          <div class="profile-pic">
+            <img src="/static/images/dada.jpg" alt="">
+          </div>
+          <div>
+            <p class="username">ganesh_desai</p>
+            <p class="sub-text">followed bu user</p>
+          </div>
+          <button class="action-btn">follow</button>
+        </div>
+        <div class="profile-card">
+          <div class="profile-pic">
+            <img src="/static/images/ravi.jpg" alt="">
+          </div>
+          <div>
+            <p class="username">ravi_patil</p>
+            <p class="sub-text">followed bu user</p>
+          </div>
+          <button class="action-btn">follow</button>
+        </div>
+
+      </div>
+  </section>
+  <script src="static/home.js"></script>
+</body>
+
 </html>
