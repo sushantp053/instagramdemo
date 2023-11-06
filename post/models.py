@@ -16,18 +16,20 @@ class Post(models.Model):
     media = models.ImageField(upload_to="media")
 
     def __str__(self) -> str:
-        return self.title
+        return str(self.uid)
+
 
 class Like(models.Model):
     postId = models.ForeignKey(Post, on_delete=models.CASCADE)
     like_by = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
 class Comment(models.Model):
     postId = models.ForeignKey(Post, on_delete=models.CASCADE)
     comment_by = models.ForeignKey(User, on_delete=models.CASCADE)
     msg = models.TextField()
 
+
 class Mention(models.Model):
     postId = models.ForeignKey(Post, on_delete=models.CASCADE)
     mention_to = models.ForeignKey(User, on_delete=models.CASCADE)
-

@@ -17,7 +17,6 @@
       <input type="text" class="search-box" placeholder="search">
       <div class="nav-items">
         <img src="/static/images/download.png" class="icon" alt="">
-
         <img src="/static/images/add download (1).png" class="icon" alt="">
         <img src="/static/images/explore-icon.png" class="icon" alt="">
         <img src="/static/images/like.png" class="icon" alt="">
@@ -71,12 +70,12 @@
             <img src="media/{{ p.media }}" class="post-image" alt="">
             <div class="post-content">
               <div class="reaction-wrapper">
-                <img id="{{p.uid}}" src="/static/images/like.png" onclick="likePost('{{p.uid}}')" class="icon" alt="">
+                <a href='like/{{ p.uid }}'><img id="{{ p.uid }}" src="/static/images/like.png" onclick="likePost('{{p.uid}}')" class="icon" alt=""><a>
                 <img src="/static/images/comment.png" class="icon" alt="">
                 <img src="/static/images/send.png" class="icon" alt="">
                 <img src="/static/images/save.png" class="save icon" alt="">
               </div>
-              <p class="likes">1,012 likes</p>
+              <p class="likes">{{p.like__count}} likes</p>
               <p class="description"><span>username </span> Lorem ipsum dolor sit amet consectetur,
                 adipisicing elit. Pariatur tenetur veritatis placeat, molestiae impedit aut
                 provident eum quo natus molestias?</p>
@@ -90,6 +89,7 @@
           </div>
           {% endfor %}
         </div>
+
       </div>
       <div class="right-col">
         <div class="profile-card">
