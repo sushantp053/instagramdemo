@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instagram</title>
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-  <link rel="stylesheet" href="/static/home.css">
-</head>
-
-<body>
-  {{ allpost }}
+{% block basic %}
+{% include 'nav.html' %} 
+  
   <nav class="navbar">
     <div class="nav-wrapper">
       <img src="/static/images/logo.png" class="brand-img" alt="">
@@ -157,6 +149,4 @@
       </div>
   </section>
   <script src="static/home.js"></script>
-</body>
-
-</html>
+{% endblock %}

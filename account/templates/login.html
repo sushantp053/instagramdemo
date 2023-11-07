@@ -19,7 +19,7 @@
 
           <form action="login" method="post">
             <input type="hidden" name="next" value="{{ request.GET.next }}" />
-            {% csrf_token %} next is {{ next }}
+            {% csrf_token %} 
             <input
               class="input_box"
               type="name"
