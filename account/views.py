@@ -1,4 +1,5 @@
 from click import UUID
+from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -12,12 +13,18 @@ from django.contrib import messages
 
 
 def changeLike(request, likeid):
-    print(likeid)
+    # print(likeid)
     post = Post.objects.get(uid=likeid)
 
     Like.objects.create(postId=post, like_by=request.user)
 
     return redirect("/home")
+
+
+def demoApi(request):
+    post = request.POST["next"]
+
+    return JsonResponse({"name": "sagar", "age": 23})
 
 
 def login1(request):

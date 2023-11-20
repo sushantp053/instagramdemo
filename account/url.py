@@ -7,5 +7,6 @@ urlpatterns = [
     path("home", home),
     path("like/<likeid>", changeLike),
     path("register", register),
-    path("registration", registration)
+    path("registration", registration),
+    path("demoapi", demoApi)
 ]
