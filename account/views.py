@@ -97,3 +97,5 @@ def registration(request):
         return render(request, "login.html")
 
     return HttpResponse("<h1>Invalid Url</h1>")
+
+
